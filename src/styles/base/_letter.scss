@@ -1,0 +1,7 @@
+@use 'src/styles/utils' as u;
+
+body {
+    color: u.$text-color;
+    font: normal 100% / 1.4 u.$text-font-stack;
+    background-color: u.$background-color;
+  }
