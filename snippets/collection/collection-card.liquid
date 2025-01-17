@@ -1,0 +1,12 @@
+<div class="collection-card">
+    {% assign reference_date = '2025-01-01' | date: '%s' %}
+    {% assign collection_date = collection.created_at | date: '%s' %}
+    {% if collection_date >= reference_date %}
+    <div class="collection-card__item">
+        <img src="assets/{{ collection.image }}" alt="{{ collection.title }}" class="collection-card__image">
+        <div class="collection-card__overlay">
+            <p class="collection-card__text">{{ collection.title }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
