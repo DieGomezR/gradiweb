@@ -1,0 +1,15 @@
+.mobile-logo {
+  display: none;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__text {
+    font-weight: bold;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
