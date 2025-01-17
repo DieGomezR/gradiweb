@@ -1,0 +1,22 @@
+@use 'src/styles/utils' as u;
+
+.footer-socials {
+
+  // Estilo para el contenedor principal de las redes sociales
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  // Estilo para el contenedor de los iconos sociales
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-block-end: 1rem;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: bold;
+    align-self: flex-start;
+  }
+}

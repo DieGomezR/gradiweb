@@ -1,0 +1,39 @@
+@use 'src/styles/utils' as u;
+
+.footer-suscription {
+
+  // Estilo para el texto de la suscripción
+  &__text {
+    font-size: 0.75rem;
+  }
+
+  // Estilo para el título del texto de la suscripción
+  &__text-title {
+    margin-block: 0.5rem;
+  }
+
+  // Contenedor del input para la suscripción
+  &__input-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  // Estilo para el campo de texto (input)
+  &__text-input {
+    padding: 0.5rem 1rem;
+    margin-block: 1rem;
+    font-size: 1rem;
+
+    // Estilo al hacer foco en el input
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // Estilo para el SVG (icono)
+  svg {
+    left: -30px;
+    position: relative;
+  }
+}
