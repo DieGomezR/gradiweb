@@ -1,18 +1,21 @@
+// Colores principales utilizados en el proyecto
 
-/// @type Color
+/// Color negro oscuro para fondos o textos destacados
 $eerie-black: rgb(26, 26, 26);
 
-/// @type Color
+/// Color blanco para textos o elementos de alto contraste
 $white: rgb(254, 254, 254);
 
-/// @type Color
+/// Color azul violeta para acentos o elementos interactivos
 $blue-violet: rgb(118, 44, 251);
 
-/// @type Color
+/// Tonos de gris con diferentes niveles de intensidad
+
+/// Gris claro, ideal para fondos secundarios o bordes
 $light-grey: rgb(237, 237, 237) !default;
 
-/// @type Color
+/// Gris medio, útil para texto secundario o elementos deshabilitados
 $mid-grey: rgb(153, 153, 153) !default;
 
-/// @type Color
+/// Gris oscuro para bordes o elementos menos prominentes
 $dark-grey: rgb(68, 68, 68) !default;

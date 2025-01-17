@@ -1,11 +1,7 @@
 <script>
   class MarqueeManager {
     /**
-     * Creates a new MarqueeManager instance.
-     * @param {HTMLElement} contentElement - The DOM element containing the content to be repeated.
-     * @param {Object} [options={}] - Configuration options.
-     * @param {number} [options.speed=20] - Scrolling speed in pixels per second.
-     * @param {number} [options.padding=20] - Padding between repeated elements in pixels.
+     * Crea una nueva instancia de MarqueeManager.
      */
     constructor(contentElement, options = {}) {
       this.content = contentElement;
@@ -20,7 +16,7 @@
     }
 
     /**
-     * Initializes the marquee content and sets up event listeners.
+     * Inicializa el contenido del marquee.
      */
     init() {
       this.updateContent();
@@ -28,14 +24,14 @@
     }
 
     /**
-     * Updates the marquee content by calculating required repetitions.
+     * Actualiza el contenido del marquee calculando las repeticiones necesarias.
      */
     updateContent() {
       const containerWidth = this.content.parentElement.offsetWidth;
       const item = this.content.children[0];
 
       if (!item) {
-        console.warn("No child elements found in content.");
+        console.warn("No se encontraron elementos secundarios en el contenido.");
         return;
       }
 
@@ -55,10 +51,10 @@
     }
 
     /**
-     * Applies inline styles to ensure content is properly displayed.
+     * Aplica estilos en línea para garantizar que el contenido se muestre correctamente.
      */
     applyInlineStyles() {
-      console.warn("Applying inline styles to fix zero-width items.");
+      console.warn("Aplicando estilos en línea para corregir elementos con ancho cero.");
       this.content.style.whiteSpace = 'nowrap';
       this.content.style.display = 'inline-block';
       Array.from(this.content.children).forEach(child => {
@@ -67,7 +63,7 @@
     }
 
     /**
-     * Destroys the MarqueeManager instance by removing event listeners.
+     * Destruye la instancia de MarqueeManager eliminando los event listeners.
      */
     destroy() {
       window.removeEventListener('resize', this.updateContent.bind(this));

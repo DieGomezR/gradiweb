@@ -1,158 +1,93 @@
-// Archivo transformado: _reset.scss
-/* makes sizing simpler */
-/* remove default spacing */
-/* force styling of type through styling, rather than elements */
+
+// Reinicio de estilos básicos
 *,
 *::before,
 *::after {
-
   box-sizing: border-box;
-
   margin: 0;
-
   padding: 0;
-
   font: inherit;
-
   border-radius: 0;
-
   border: none;
-
   font-size: 100%;
-
   vertical-align: baseline;
-
 }
-
 
 :root {
-
-	scroll-behavior: smooth;
-
-    /// remove touch delay in some smartphones
-    /// disabled double tap for zoom in mobile
-    -ms-touch-action: manipulation;
-
-    touch-action: manipulation;
-
+  scroll-behavior: smooth;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
-
-/* dark mode user-agent-styles */
-/* improves punctuation in supported browsers */
+// Estilos generales y mejoras en accesibilidad
 html {
-
   color-scheme: dark light;
-
   hanging-punctuation: first last;
-
 }
 
-
-/* min body height */
-/* Remove color when tapped on a link in mobile*/
+// Estilos básicos para el cuerpo
 body {
-
   min-height: 100svh;
-
   -webkit-tap-highlight-color: transparent;
-
 }
 
-
+// Definición de estructura básica
 article, aside, details, figcaption, figure, footer, 
-header, hgroup, img, menu, nav, 
-section {
-
-	display: block;
-
+header, hgroup, img, menu, nav, section {
+  display: block;
 }
 
-
-/* responsive images/videos */
+// Estilos para imágenes y videos
 img,
 picture,
 svg,
 video {
-
   display: block;
-
   max-width: 100%;
-
-  height: auto;
-
+  height: auto; 
 }
 
-
-/* Improved heading in supported browsers */
+// Mejora en la legibilidad de encabezados
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-
   text-wrap: balance;
-
 }
 
-
-/* Handle list styles */
+// Manejo de listas
 ol, ul {
-
-	list-style: none;
-
+  list-style: none;
 }
 
-
-/* Handle Tables styles */
+// Estilos para tablas
 table {
-
-	border-collapse: collapse;
-
-	border-spacing: 0;
-
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-
-/* Handle Links */
+// Enlaces y abreviaturas
 a, abbr[title] {
-
-    text-decoration: none;
-
+  text-decoration: none;
 }
 
-
-/* lines of underline and strikethrough text are not interrupted by letters in a text*/
 abbr[title] {
-
-    cursor: help;
-
-    -webkit-text-decoration-skip-ink: none;
-
-	text-decoration-skip-ink: none;
-
+  cursor: help;
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none; 
 }
 
-
-/* improve readability with max-width on paragraphs and lists */
-/* prevent orphans in supported browsers */
+// Mejor legibilidad en párrafos y listas
 p,
 li {
-
   max-width: var(--p-max-width, 65ch);
-
-  text-wrap: pretty;
-
+  text-wrap: pretty; 
 }
 
-
-/* No button styles */
+// Botones sin estilos predeterminados
 button {
-
-    background: none;
-
-    text-align: left;
-
+  background: none;
+  text-align: left;
 }
-

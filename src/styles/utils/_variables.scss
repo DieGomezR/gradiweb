@@ -1,20 +1,20 @@
 @use 'colors' as c;
 
-/// @type Color
+// Colores utilizados en el diseño
+
+/// Color principal para el texto (alto contraste)
 $text-color: c.$white !default;
 
-/// @type Color
+/// Color de fondo principal (negro oscuro)
 $background-color: c.$eerie-black !default;
 
-/// @type Color
+/// Color secundario para acentos o elementos destacados
 $secondary-color: c.$blue-violet !default;
 
-/// @type List
-$text-font-stack: 'Aeonik', 'Open Sans','Arial', sans-serif !default;
+// Fuentes utilizadas en el proyecto
 
-/// @type List
+/// fuentes para texto general
+$text-font-stack: 'Aeonik', 'Open Sans', 'Arial', sans-serif !default;
+
+/// fuentes para títulos o encabezados
 $title-font-stack: 'Courier New', Courier, monospace !default;
-
-
-
-

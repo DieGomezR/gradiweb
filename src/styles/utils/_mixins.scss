@@ -1,19 +1,52 @@
+@use 'variables' as v;
 
+// Mixins reutilizables para estilos comunes
+
+/// Mixin para hacer que los elementos SVG sean responsivos
 @mixin SVGResponsive {
-
   display: block;
-
   max-width: 100%;
-
   height: auto;
-
 }
 
-
+/// Mixin para centrar elementos horizontalmente
 @mixin center {
-
   margin-left: auto;
-
   margin-right: auto;
+}
 
+// Mixin para el estilo básico del contenedor
+@mixin Container {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+@mixin ContainerHover {
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@mixin textMarquee {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: v.$title-font-stack;
+}
+
+// Mixin para los estilos de animación de desplazamiento
+@mixin marqueeAnimation {
+  @keyframes marquee {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
 }
