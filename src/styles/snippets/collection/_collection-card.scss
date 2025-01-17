@@ -1,0 +1,55 @@
+@use 'src/styles/utils' as u;
+
+.collection-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    &__item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f4f4f4;
+      height: 250px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  
+    &__overlay {
+      position: absolute;
+      bottom: 10%; /* Ajusta la posición del texto */
+      left: 3%;
+      background-color: transparent; /* Sin fondo */
+      padding: 0.5rem 1rem;
+      z-index: 2;
+    }
+  
+    &__text {
+      font-size: 1.5rem; /* Tamaño de texto mayor */
+      color: white;
+    }
+  }
+  
