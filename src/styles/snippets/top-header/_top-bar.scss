@@ -1,0 +1,50 @@
+@use 'src/styles/utils' as u;
+
+.top-bar {
+  overflow: hidden; /* Oculta contenido que se desborda */
+  white-space: nowrap; /* Asegura que el texto esté en una sola línea */
+  display: flex;
+  align-items: center;
+  height: 30px; /* Altura del top-bar */
+  background-color: u.$secondary-color;
+
+  &__container {
+    display: flex; /* Mantiene los elementos en línea */
+    align-items: center;
+    white-space: nowrap; /* Evita saltos de línea */
+    animation: marquee 20s linear infinite; /* Animación para el desplazamiento */
+    &:hover{
+      animation-play-state: paused; /* Pausa la animación al pasar el cursor */
+    }
+  }
+  
+  &__text {
+    display: inline-flex; /* Mantén el texto en línea */
+    align-items: center;
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    white-space: nowrap; /* Evita saltos de línea */
+    margin-right: 5px; /* Espaciado entre repeticiones */
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle; /* Alinea con el texto */
+  }
+
+}
+
+/* Animación para el desplazamiento horizontal */
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

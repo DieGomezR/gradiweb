@@ -1,0 +1,76 @@
+<script>
+  class MarqueeManager {
+    /**
+     * Creates a new MarqueeManager instance.
+     * @param {HTMLElement} contentElement - The DOM element containing the content to be repeated.
+     * @param {Object} [options={}] - Configuration options.
+     * @param {number} [options.speed=20] - Scrolling speed in pixels per second.
+     * @param {number} [options.padding=20] - Padding between repeated elements in pixels.
+     */
+    constructor(contentElement, options = {}) {
+      this.content = contentElement;
+      this.options = {
+        speed: options.speed || 20,
+        padding: options.padding || 20,
+        ...options,
+      };
+      this.originalText = this.content.innerHTML;
+      this.repetitions = 0;
+      this.init();
+    }
+
+    /**
+     * Initializes the marquee content and sets up event listeners.
+     */
+    init() {
+      this.updateContent();
+      window.addEventListener('resize', this.updateContent.bind(this));
+    }
+
+    /**
+     * Updates the marquee content by calculating required repetitions.
+     */
+    updateContent() {
+      const containerWidth = this.content.parentElement.offsetWidth;
+      const item = this.content.children[0];
+
+      if (!item) {
+        console.warn("No child elements found in content.");
+        return;
+      }
+
+      const itemWidth = item.offsetWidth;
+
+      if (itemWidth === 0) {
+        this.applyInlineStyles();
+        return;
+      }
+
+      const requiredRepetitions = Math.ceil((containerWidth * 2) / itemWidth) + 1;
+
+      if (requiredRepetitions !== this.repetitions) {
+        this.repetitions = requiredRepetitions;
+        this.content.innerHTML = this.originalText.repeat(this.repetitions);
+      }
+    }
+
+    /**
+     * Applies inline styles to ensure content is properly displayed.
+     */
+    applyInlineStyles() {
+      console.warn("Applying inline styles to fix zero-width items.");
+      this.content.style.whiteSpace = 'nowrap';
+      this.content.style.display = 'inline-block';
+      Array.from(this.content.children).forEach(child => {
+        child.style.display = 'inline-block';
+      });
+    }
+
+    /**
+     * Destroys the MarqueeManager instance by removing event listeners.
+     */
+    destroy() {
+      window.removeEventListener('resize', this.updateContent.bind(this));
+    }
+  }
+</script>
