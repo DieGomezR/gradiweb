@@ -3,6 +3,7 @@
 // Mixins reutilizables para estilos comunes
 
 /// Mixin para hacer que los elementos SVG sean responsivos
+/// Aplica un diseño de bloque, ajustando el ancho al 100% y manteniendo la altura automática
 @mixin SVGResponsive {
   display: block;
   max-width: 100%;
@@ -10,12 +11,15 @@
 }
 
 /// Mixin para centrar elementos horizontalmente
+/// Utiliza márgenes automáticos para centrar el contenido
 @mixin center {
   margin-left: auto;
   margin-right: auto;
 }
 
 // Mixin para el estilo básico del contenedor
+/// Establece el contenedor como un flexbox con alineación centrada y un texto sin saltos de línea
+/// También aplica una animación de desplazamiento continuo
 @mixin Container {
   display: flex;
   align-items: center;
@@ -23,12 +27,16 @@
   animation: marquee 20s linear infinite;
 }
 
+/// Mixin para pausar la animación al pasar el cursor sobre el contenedor
+/// Se utiliza junto al mixin Container para habilitar la pausa en hover
 @mixin ContainerHover {
   &:hover {
     animation-play-state: paused;
   }
 }
 
+/// Mixin para el estilo del texto en el efecto marquee
+/// Aplica alineación vertical y un estilo de texto en mayúsculas con fuentes personalizadas
 @mixin textMarquee {
   display: inline-flex;
   align-items: center;
@@ -40,6 +48,7 @@
 }
 
 // Mixin para los estilos de animación de desplazamiento
+/// Define una animación de movimiento horizontal que hace que el contenido se desplace de derecha a izquierda
 @mixin marqueeAnimation {
   @keyframes marquee {
     from {
@@ -51,6 +60,8 @@
   }
 }
 
+/// Mixin para las consultas de medios (media queries)
+/// Permite aplicar estilos específicos para diferentes puntos de interrupción (breakpoints) definidos en el mapa de breakpoints
 @mixin respond-to($breakpoint) {
   $raw-query: map-get(v.$breakpoints, $breakpoint);
   @if $raw-query {

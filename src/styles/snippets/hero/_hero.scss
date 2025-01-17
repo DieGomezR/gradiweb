@@ -1,11 +1,11 @@
-
 @use "src/styles/utils" as u;
+
 .hero-marquee {
   position: sticky;
   top: 0;
-  overflow: hidden; /* Oculta contenido desbordado horizontalmente */
+  overflow: hidden;
   display: flex;
-  width: 100%; /* Ajusta el ancho al contenedor */
+  width: 100%;
   background-color: transparent;
 
   &__container {
@@ -16,15 +16,15 @@
   &__text {
     @include u.textMarquee;
     font-size: 3.5rem;
-    gap: 10px; /* Espaciado entre texto e ícono */
+    gap: 10px;
     margin-left: 20px;
   }
 
   &__icon {
     display: inline-block;
-    width: 50px; /* Ajusta tamaño del ícono */
+    width: 50px;
     height: 50px;
-    vertical-align: middle; /* Asegura alineación vertical */
+    vertical-align: middle;
   }
 }
 

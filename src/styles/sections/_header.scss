@@ -1,26 +1,16 @@
-
 @use "src/styles/utils" as u;
 
 .header {
   top: 30px;
-
   position: sticky;
-
   padding-block: 1rem;
-
   padding-inline: 4rem;
-
   background-color: rgba(35, 33, 40, 0.3);
-
   backdrop-filter: blur(16px);
-
   z-index: 100;
-
   &__container {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
   }
 }

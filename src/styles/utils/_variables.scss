@@ -1,11 +1,12 @@
 @use "colors" as c;
 
 /// @type Length
+/// Establece el valor máximo para el ancho del contenedor principal
 $max-width: 1300px !default;
 
 // Colores utilizados en el diseño
 
-/// Color principal para el texto (alto contraste)
+/// Color principal para el texto (alto contraste con el fondo)
 $text-color: c.$white !default;
 
 /// Color de fondo principal (negro oscuro)
@@ -16,16 +17,16 @@ $secondary-color: c.$blue-violet !default;
 
 // Fuentes utilizadas en el proyecto
 
-/// fuentes para texto general
+/// Fuentes para texto general (fuentes sans-serif)
 $text-font-stack: "Aeonik", "Open Sans", "Arial", sans-serif !default;
 
-/// fuentes para títulos o encabezados
+/// Fuentes para títulos o encabezados (fuentes monospace)
 $title-font-stack: "Courier New", Courier, monospace !default;
 
-/// Breakpoints map
+/// Mapa de breakpoints para consultas de medios (media queries)
 /// @prop {
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+/// @prop {String} keys - Identificadores que corresponden a un ancho específico
+/// @prop {Map} values - Valores reales que representan los breakpoints en píxeles
 $breakpoints: (
   "special": (
     max-width: 1130px,
