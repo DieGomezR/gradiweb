@@ -1,0 +1,31 @@
+
+@use "src/styles/utils" as u;
+.hero-marquee {
+  position: sticky;
+  top: 0;
+  overflow: hidden; /* Oculta contenido desbordado horizontalmente */
+  display: flex;
+  width: 100%; /* Ajusta el ancho al contenedor */
+  background-color: transparent;
+
+  &__container {
+    @include u.Container;
+    @include u.ContainerHover;
+  }
+
+  &__text {
+    @include u.textMarquee;
+    font-size: 3.5rem;
+    gap: 10px; /* Espaciado entre texto e ícono */
+    margin-left: 20px;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 50px; /* Ajusta tamaño del ícono */
+    height: 50px;
+    vertical-align: middle; /* Asegura alineación vertical */
+  }
+}
+
+@include u.marqueeAnimation;

@@ -1,4 +1,7 @@
-@use 'colors' as c;
+@use "colors" as c;
+
+/// @type Length
+$max-width: 1300px !default;
 
 // Colores utilizados en el diseño
 
@@ -14,7 +17,26 @@ $secondary-color: c.$blue-violet !default;
 // Fuentes utilizadas en el proyecto
 
 /// fuentes para texto general
-$text-font-stack: 'Aeonik', 'Open Sans', 'Arial', sans-serif !default;
+$text-font-stack: "Aeonik", "Open Sans", "Arial", sans-serif !default;
 
 /// fuentes para títulos o encabezados
-$title-font-stack: 'Courier New', Courier, monospace !default;
+$title-font-stack: "Courier New", Courier, monospace !default;
+
+/// Breakpoints map
+/// @prop {
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  "special": (
+    max-width: 1130px,
+  ),
+  "tablet": (
+    max-width: 1000px,
+  ),
+  "intermediate": (
+    max-width: 770px,
+  ),
+  "mobile": (
+    max-width: 650px,
+  ),
+);
