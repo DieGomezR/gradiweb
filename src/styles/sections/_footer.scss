@@ -1,8 +1,6 @@
 @use "src/styles/utils" as u;
 
 .footer {
-  padding-inline: 2.2rem;
-
   // Contenedor para pantallas de escritorio
   &__container-desktop {
     display: flex;

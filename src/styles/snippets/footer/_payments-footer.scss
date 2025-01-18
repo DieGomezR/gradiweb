@@ -1,0 +1,26 @@
+@use 'src/styles/utils' as u;
+
+.footer-payment-methods {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &__text {
+    font-style: bold;
+    font-size: 0.75rem;
+    &::first-letter {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
