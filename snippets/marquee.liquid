@@ -1,72 +1,82 @@
 <script>
+  /**
+   * MarqueeManager maneja la creación y gestión de texto desplazable estilo "marquee".
+   * Calcula y duplica automáticamente el contenido para garantizar un desplazamiento continuo
+   * en diferentes tamaños de pantalla.
+   */
   class MarqueeManager {
+
     /**
      * Crea una nueva instancia de MarqueeManager.
+     * @param {HTMLElement} contentElement - El elemento DOM que contiene el contenido a repetir.
+     * @param {Object} options - Opciones de configuración.
+     * @param {number} [options.speed=20] - Velocidad de desplazamiento en píxeles por segundo.
+     * @param {number} [options.padding=20] - Espaciado entre elementos repetidos en píxeles.
      */
     constructor(contentElement, options = {}) {
       this.content = contentElement;
       this.options = {
-        speed: options.speed || 20,
-        padding: options.padding || 20,
+        speed: options.speed || 20, // Velocidad predeterminada si no se especifica.
         ...options,
       };
-      this.originalText = this.content.innerHTML;
-      this.repetitions = 0;
+      this.originalText = this.content.innerHTML; // Guarda el texto original del contenido.
       this.init();
     }
 
     /**
-     * Inicializa el contenido del marquee.
+     * Inicializa el contenido del marquee y configura los listeners de eventos.
+     * Usa requestAnimationFrame para renderizado inicial suave y añade un timeout
+     * como respaldo para manejar posibles fallos.
+     * @private
      */
     init() {
-      this.updateContent();
-      window.addEventListener('resize', this.updateContent.bind(this));
+      requestAnimationFrame(() => {
+        this.updateContent();
+
+        // Respaldo para manejar errores ocasionales.
+        setTimeout(() => {
+          this.updateContent();
+        }, 100);
+      });
+
+      // Actualiza el contenido al cambiar el tamaño de la ventana.
+      window.addEventListener('resize', () => this.updateContent());
     }
 
     /**
-     * Actualiza el contenido del marquee calculando las repeticiones necesarias.
+     * Calcula las repeticiones necesarias y actualiza el contenido.
+     * Asegura que el contenido llene el doble del ancho del contenedor más una repetición
+     * para mantener un efecto de desplazamiento continuo.
+     * @private
      */
     updateContent() {
       const containerWidth = this.content.parentElement.offsetWidth;
-      const item = this.content.children[0];
+      const itemWidth = this.content.children[0]?.offsetWidth || 0;
 
-      if (!item) {
-        console.warn("No se encontraron elementos secundarios en el contenido.");
-        return;
-      }
-
-      const itemWidth = item.offsetWidth;
-
+      // Manejo de caso donde el ancho de los elementos hijos es 0.
       if (itemWidth === 0) {
-        this.applyInlineStyles();
-        return;
+        console.warn("El ancho de un hijo es 0. Asegúrate de que el contenido esté en línea.");
+        this.content.style.whiteSpace = 'nowrap';
+        this.content.style.display = 'inline-block';
+        Array.from(this.content.children).forEach(child => {
+          child.style.display = 'inline-block';
+        });
       }
 
-      const requiredRepetitions = Math.ceil((containerWidth * 2) / itemWidth) + 1;
+      const repetitions = Math.ceil((containerWidth * 2) / itemWidth) + 1;
 
-      if (requiredRepetitions !== this.repetitions) {
-        this.repetitions = requiredRepetitions;
-        this.content.innerHTML = this.originalText.repeat(this.repetitions);
+      // Limpia el contenido actual y añade las repeticiones necesarias.
+      this.content.innerHTML = '';
+      for (let i = 0; i < repetitions; i++) {
+        this.content.innerHTML += this.originalText;
       }
     }
 
     /**
-     * Aplica estilos en línea para garantizar que el contenido se muestre correctamente.
-     */
-    applyInlineStyles() {
-      console.warn("Aplicando estilos en línea para corregir elementos con ancho cero.");
-      this.content.style.whiteSpace = 'nowrap';
-      this.content.style.display = 'inline-block';
-      Array.from(this.content.children).forEach(child => {
-        child.style.display = 'inline-block';
-      });
-    }
-
-    /**
-     * Destruye la instancia de MarqueeManager eliminando los event listeners.
+     * Elimina los listeners de eventos para destruir correctamente la instancia.
      */
     destroy() {
-      window.removeEventListener('resize', this.updateContent.bind(this));
+      window.removeEventListener('resize', () => this.updateContent());
     }
   }
 </script>
