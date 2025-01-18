@@ -1,22 +1,30 @@
 @use 'src/styles/utils' as u;
+
+// Selector principal para el logo móvil.
 .mobile-logo {
   display: none;
 
+  // Contenedor interno del logo móvil.
   &__container {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
 
+  // Texto asociado al logo móvil.
   &__text {
+    font-family: u.$title-font-stack;
     font-weight: bold;
     display: flex;
     flex-wrap: nowrap;
+
+    @include u.respond-to('tablet') {
+      font-size: 1rem;
+    }
   }
-  @include u.respond-to("tablet") {
-    font-size: 0.8rem;
-  }
-  @include u.respond-to("intermediate") {
+
+  // Estilos aplicados para pantallas intermedias.
+  @include u.respond-to('intermediate') {
     display: flex;
   }
 }

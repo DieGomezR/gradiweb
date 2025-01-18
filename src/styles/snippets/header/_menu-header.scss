@@ -1,26 +1,32 @@
-@use "src/styles/utils" as u;
+@use 'src/styles/utils' as u;
+
+// Selector principal para el menú del encabezado.
 .header-menu {
+
+  // Lista de elementos del menú.
   &__list {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 
+  // Elemento individual dentro del menú.
   &__item {
     font-weight: bold;
     font-size: 0.9rem;
   }
 
+  // Texto asociado a un elemento del menú.
   &__text {
     @include u.respond-to('tablet') {
       display: none;
     }
-
   }
 
+  // Contenedor específico para el carrito dentro del menú.
   &__cart {
     padding: 0.5rem 1rem;
-    border-radius: 5px;
     background-color: u.$secondary-color;
+    border-radius: 5px;
   }
 }

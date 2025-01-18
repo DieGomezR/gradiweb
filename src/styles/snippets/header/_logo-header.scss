@@ -1,7 +1,15 @@
-@use "src/styles/utils" as u;
+@use 'src/styles/utils' as u;
 
+// Selector principal para el logo del encabezado.
 .header-logo {
-  @include u.respond-to("intermediate") {
+
+  // Estilos aplicados para pantallas intermedias.
+  @include u.respond-to('intermediate') {
+    display: none;
+  }
+
+  // Estilos aplicados para pantallas móviles.
+  @include u.respond-to('mobile') {
     display: none;
   }
 }

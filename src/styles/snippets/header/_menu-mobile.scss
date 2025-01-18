@@ -1,12 +1,16 @@
-@use 'src/styles/utils' as u;
+@use "src/styles/utils" as u;
 
+// Selector principal para el menú móvil.
 .mobile-menu {
   display: none;
   position: relative;
+
+  // Botón para interactuar con el menú móvil.
   &__button {
     cursor: pointer;
   }
 
+  // Contenedor principal del contenido del menú móvil.
   &__content {
     position: fixed;
     top: 17%;
@@ -18,11 +22,13 @@
     visibility: hidden;
   }
 
+  // Estado abierto del contenido del menú móvil.
   &__content.is-open {
     transform: translateY(0);
     visibility: visible;
   }
 
+  // Contenedor adicional dentro del contenido del menú móvil.
   &__content-container {
     background-color: u.$secondary-color;
     border-radius: 5px;
@@ -30,25 +36,32 @@
     margin-block-start: 0;
   }
 
+  // Lista de elementos dentro del menú móvil.
   &__list {
     padding: 1rem;
   }
 
+  // Elemento individual dentro de la lista del menú móvil.
   &__item {
     padding: 0 1rem;
     font-size: 2rem;
     font-family: u.$title-font-stack;
+
+    // Último elemento dentro de la lista del menú móvil.
     &:last-child {
       margin-block-start: 5rem;
       border: 1px solid u.$white;
       border-radius: 10rem;
 
+      // Contenedor de métodos de pago dentro del último elemento.
       & > .header-payment-methods__container {
         justify-content: center;
       }
     }
   }
-  @include u.respond-to('tablet') {
+
+  // Estilos aplicados para pantallas tipo tablet.
+  @include u.respond-to("tablet") {
     display: flex;
     align-items: center;
     gap: 1rem;

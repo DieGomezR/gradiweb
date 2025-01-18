@@ -1,6 +1,8 @@
-@use 'src/styles/utils' as u;
+@use "src/styles/utils" as u;
 
+// Selector principal para los métodos de pago en el encabezado.
 .header-payment-methods {
+  // Contenedor principal para los métodos de pago.
   &__container {
     display: flex;
     align-items: center;
@@ -8,21 +10,24 @@
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 10rem;
+    border-color: u.$blue-violet;
     border-width: 1px;
     border-style: solid;
-    border-color: u.$blue-violet;
     background-color: u.$background-color;
   }
 
+  // Texto dentro de los métodos de pago.
   &__text {
-    font-style: bold;
     font-size: 0.75rem;
+
+    // Estilo para la primera letra del texto.
     &::first-letter {
       text-transform: uppercase;
       font-weight: bold;
     }
   }
 
+  // Contenedor de íconos dentro de los métodos de pago.
   &__icons {
     display: flex;
     align-items: center;
