@@ -40,15 +40,15 @@
   
     &__overlay {
       position: absolute;
-      bottom: 10%; /* Ajusta la posición del texto */
+      bottom: 10%; 
       left: 3%;
-      background-color: transparent; /* Sin fondo */
+      background-color: transparent; 
       padding: 0.5rem 1rem;
       z-index: 2;
     }
   
     &__text {
-      font-size: 1.5rem; /* Tamaño de texto mayor */
+      font-size: 1.5rem; 
       color: white;
     }
   }
