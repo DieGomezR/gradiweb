@@ -1,3 +1,5 @@
+@use 'src/styles/utils' as u;
+
 .mobile-menu {
   display: none;
   position: relative;
@@ -22,6 +24,7 @@
   }
 
   &__content-container {
+    background-color: u.$secondary-color;
     border-radius: 5px;
     margin: 1rem;
     margin-block-start: 0;
@@ -34,14 +37,20 @@
   &__item {
     padding: 0 1rem;
     font-size: 2rem;
-
+    font-family: u.$title-font-stack;
     &:last-child {
       margin-block-start: 5rem;
+      border: 1px solid u.$white;
       border-radius: 10rem;
 
       & > .header-payment-methods__container {
         justify-content: center;
       }
     }
+  }
+  @include u.respond-to('tablet') {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }

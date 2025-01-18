@@ -1,15 +1,16 @@
 <header class="header">
-    <div class="header__container">
-        {% render 'header/menu-mobile' settings: settings %}
+    <div class="header container" id="header">
+        <div class="header__container">
+            {% render 'header/menu-mobile' settings: settings %}
 
-        {% render 'header/logo-header' %}
+            {% render 'header/logo-header' %}
 
-        <div class="header__payment-methods">
-            {% render 'header/payments-header' %}
+            <div class="header__payment-methods">
+                {% render 'header/payments-header' %}
+            </div>
+
+            {% render 'header/menu-header' %}
         </div>
-
-        {% render 'header/menu-header' %}
-
     </div>
 </header>
 

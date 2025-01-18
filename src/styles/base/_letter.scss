@@ -1,9 +1,13 @@
-@use 'src/styles/utils' as u;
-
+@use "src/styles/utils" as u;
 
 // Estilos para fuentes y colores
 body {
-    color: u.$text-color;
-    font: normal 100% / 1.4 u.$text-font-stack;
-    background-color: u.$background-color;
-  }
+  color: u.$text-color;
+  font: normal 100% / 1.4 u.$text-font-stack;
+  background-color: u.$background-color;
+}
+
+a:link,
+a:visited {
+  color: inherit;
+}
