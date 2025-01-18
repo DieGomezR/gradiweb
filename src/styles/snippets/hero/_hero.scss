@@ -11,6 +11,9 @@
   &__container {
     @include u.Container;
     @include u.ContainerHover;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
   }
 
   &__text {

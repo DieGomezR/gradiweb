@@ -18,10 +18,10 @@ $secondary-color: c.$blue-violet !default;
 // Fuentes utilizadas en el proyecto
 
 /// Fuentes para texto general (fuentes sans-serif)
-$text-font-stack: "Aeonik", "Open Sans", "Arial", sans-serif !default;
+$text-font-stack: 'Aeonik', 'libre-baskerville', 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
 
 /// Fuentes para títulos o encabezados (fuentes monospace)
-$title-font-stack: "Courier New", Courier, monospace !default;
+$title-font-stack: 'Countach', 'Courier New', Courier, monospace !default;
 
 /// Mapa de breakpoints para consultas de medios (media queries)
 /// @prop {
