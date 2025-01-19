@@ -1,6 +1,8 @@
 @use "src/styles/utils" as u;
 
 .footer {
+  padding-inline: 2.2rem;
+
   // Contenedor para pantallas de escritorio
   &__container-desktop {
     display: flex;
@@ -36,12 +38,10 @@
 
   // Logo y redes sociales para dispositivos de tablet
   &__logo-socials-tablet {
-    display: flex;
-    justify-content: space-between;
-
     @include u.respond-to("mobile") {
+      display: flex;
+      justify-content: space-between;
       flex-direction: column-reverse;
-      align-items: flex-start;
       margin-block: 2rem 1rem;
     }
   }

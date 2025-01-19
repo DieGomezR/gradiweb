@@ -1,0 +1,123 @@
+@use 'src/styles/utils' as u;
+
+.footer-mobile {
+  display: flex;
+  flex-direction: column;
+
+  // Contenedor para la suscripción
+  .footer-suscription-mobile {
+    width: 100%;
+
+    &__text {
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      @include u.respond-to("intermediate") {
+        margin-top: 1rem;
+      }
+    }
+
+    &__input-container {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .footer-suscription-mobile__text-input {
+        flex: 1;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        border: 1px solid #6b38f1;
+        border-radius: 4px;
+        background-color: #000;
+        color: #fff;
+
+        &:focus {
+          outline: none;
+          border-color: #762cfb;
+        }
+      }
+
+      svg {
+        margin-left: -35px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .footer-logo-mobile {
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      justify-items: flex-start;
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px; // Espaciado entre el logo y el texto
+
+      svg {
+        width: 50px;
+        height: auto;
+      }
+
+      &__text {
+        color: #ffffff; // Texto blanco
+        font-size: 18px;
+        font-weight: normal;
+
+        &--bold {
+          font-weight: bold;
+          color: #6b38f1; // Color púrpura para resaltar
+        }
+      }
+    }
+
+    .footer-socials-mobile__socials {
+      margin-top: 20px; // Separación del logo
+      display: flex;
+      flex-direction: column;
+      gap: 10px; // Espaciado entre enlaces
+
+      .footer-socials-mobile__item {
+        color: #ffffff; // Texto blanco
+        font-size: 16px;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #6b38f1; // Color púrpura al hover
+        }
+      }
+    }
+  }
+  .footer-logo-mobile__description {
+    justify-items: self-start;
+    padding-top: 20px;
+    &-text {
+      color: #ffffff; // Color blanco para el texto
+      font-size: 14px; // Tamaño de fuente ajustado
+      line-height: 1.6; // Espaciado entre líneas
+      margin: 0; // Eliminar márgenes predeterminados
+      display: block; // Asegura que cada línea ocupe todo el contenedor
+    }
+
+    p:nth-child(1),
+    p:nth-child(2) {
+      display: inline; // Combina las dos primeras líneas en un solo flujo
+      margin: 0; // Sin separación adicional entre ellas
+    }
+
+    p:nth-child(3) {
+      a {
+        text-decoration: none; // Sin subrayado
+        transition: color 0.3s;
+
+        &:hover {
+          color: #ffffff; // Cambiar el color a blanco al pasar el mouse
+        }
+      }
+    }
+  }
+}

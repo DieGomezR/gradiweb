@@ -1,12 +1,19 @@
-@use 'src/styles/utils' as u;
+@use "src/styles/utils" as u;
 
 .footer-payment-methods {
   &__container {
     display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+
+    @include u.respond-to("special") {
+      padding: 0.5rem 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+    @include u.respond-to("mobile") {
+      justify-content: flex-start;
+      padding: 0;
+    }
   }
 
   &__text {
