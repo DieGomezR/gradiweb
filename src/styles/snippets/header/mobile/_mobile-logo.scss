@@ -14,9 +14,15 @@
   // Texto asociado al logo móvil.
   &__text {
     font-family: u.$title-font-stack;
+    color: u.$secondary-color;
     font-weight: bold;
     display: flex;
     flex-wrap: nowrap;
+
+    &--bold {
+      font-size: 20px;
+      color: u.$white;
+    }
 
     @include u.respond-to('tablet') {
       font-size: 1rem;
