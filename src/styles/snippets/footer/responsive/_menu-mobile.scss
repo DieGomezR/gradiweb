@@ -55,39 +55,40 @@
     &__logo {
       display: flex;
       align-items: center;
-      gap: 10px; // Espaciado entre el logo y el texto
+      gap: 10px; 
 
       svg {
         width: 50px;
         height: auto;
       }
+    }
 
-      &__text {
-        color: #ffffff; // Texto blanco
-        font-size: 18px;
-        font-weight: normal;
-
-        &--bold {
-          font-weight: bold;
-          color: #6b38f1; // Color púrpura para resaltar
-        }
+    &__logo-text {
+      font-family: u.$title-font-stack;
+      color: u.$secondary-color;
+      font-size: 40px;
+      font-weight: normal;
+  
+      &--bold {
+        font-weight: bold;
+        color: u.$white;
       }
     }
 
     .footer-socials-mobile__socials {
-      margin-top: 20px; // Separación del logo
+      margin-top: 20px; 
       display: flex;
       flex-direction: column;
-      gap: 10px; // Espaciado entre enlaces
+      gap: 10px; 
 
       .footer-socials-mobile__item {
-        color: #ffffff; // Texto blanco
+        color: #ffffff; 
         font-size: 16px;
         text-decoration: none;
         transition: color 0.3s;
 
         &:hover {
-          color: #6b38f1; // Color púrpura al hover
+          color: #6b38f1; 
         }
       }
     }
@@ -96,26 +97,26 @@
     justify-items: self-start;
     padding-top: 20px;
     &-text {
-      color: #ffffff; // Color blanco para el texto
-      font-size: 14px; // Tamaño de fuente ajustado
-      line-height: 1.6; // Espaciado entre líneas
-      margin: 0; // Eliminar márgenes predeterminados
-      display: block; // Asegura que cada línea ocupe todo el contenedor
+      color: #ffffff; 
+      font-size: 14px; 
+      line-height: 1.6; 
+      margin: 0; 
+      display: block; 
     }
 
     p:nth-child(1),
     p:nth-child(2) {
-      display: inline; // Combina las dos primeras líneas en un solo flujo
-      margin: 0; // Sin separación adicional entre ellas
+      display: inline; 
+      margin: 0; 
     }
 
     p:nth-child(3) {
       a {
-        text-decoration: none; // Sin subrayado
+        text-decoration: none; 
         transition: color 0.3s;
 
         &:hover {
-          color: #ffffff; // Cambiar el color a blanco al pasar el mouse
+          color: #ffffff; 
         }
       }
     }
