@@ -1,13 +1,32 @@
-
+{% comment %}
+Sección del menú en el footer.
+Renderiza una lista de enlaces configurados dinámicamente desde 'settings'.
+{% endcomment %}
 <div class="footer-menu">
+
+  {% comment %}
+  Contenedor principal del menú del footer.
+  Organiza los elementos en una lista no ordenada.
+  {% endcomment %}
   <div class="footer-menu__container">
     <ul class="footer-menu__list">
+
+      {% comment %}
+      Itero sobre los enlaces definidos en 'settings'.
+      - Uso 'limit: 4' para mostrar solo los primeros 4 enlaces.
+      - Cada enlace se renderiza como un elemento de lista con un enlace HTML.
+      {% endcomment %}
       {% for link in settings['footer'].settings.links limit: 4 %}
         <li class="footer-menu__item">
-          <a href="{{ link.url }}">{{ link.label | upcase }}
-</a>
-</li>
+          {% comment %}
+          Renderizo un enlace:
+          - 'link.url' proporciona la URL del enlace.
+          - 'link.label' es el texto del enlace, convertido a mayúsculas con 'upcase'.
+          {% endcomment %}
+          <a href="{{ link.url }}">{{ link.label | upcase }}</a>
+        </li>
       {% endfor %}
+
     </ul>
   </div>
 </div>

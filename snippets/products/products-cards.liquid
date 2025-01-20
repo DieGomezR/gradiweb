@@ -1,17 +1,47 @@
+{% comment %}
+Tarjeta de producto.
+Incluye un enlace al producto, una imagen, una descripción con el título y el precio, y un botón para agregar al carrito.
+{% endcomment %}
 <div class="product-card">
-  <a class="product-card__link" href="/products/{{product.id}}
-">
+
+  {% comment %}
+  Enlace envolvente de la tarjeta de producto.
+  - Direcciona a la página del producto usando su ID dinámico.
+  - Clase 'product-card__link' para aplicar estilos específicos.
+  {% endcomment %}
+  <a class="product-card__link" href="/products/{{ product.id }}">
+    
+    {% comment %}
+    Contenedor de la imagen del producto.
+    Renderiza dinámicamente una imagen del producto desde la carpeta 'assets'.
+    {% endcomment %}
     <div class="product-card__image">
       <img src="assets/{{ product.image }}" alt="{{ product.title }}" width="300" height="300">
     </div>
   </a>
+
+  {% comment %}
+  Contenedor de la descripción del producto.
+  Incluye el título, precio y un botón para agregar al carrito.
+  {% endcomment %}
   <div class="product-card__description">
+    
+    {% comment %}
+    Contenido de la descripción del producto.
+    - 'product.title': Título dinámico del producto.
+    - 'product.price': Precio dinámico del producto, formateado en dólares estadounidenses (USD).
+    {% endcomment %}
     <div class="product-card__description-content">
-      <p class="product-card__title">{{product.title }}
-</p>
-      <p class="product-card__price">${{product.price }}
- USD</p>
+      <p class="product-card__title">{{ product.title }}</p>
+      <p class="product-card__price">${{ product.price }} USD</p>
     </div>
-    <button class="product-card__button"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.167 2.167h1.415c.266 0 .4 0 .507.049a.542.542 0 0 1 .23.2c.064.099.083.23.12.495L4.953 6.5m0 0 1.14 8.376c.145 1.063.217 1.594.47 1.994.225.352.546.633.925.807.43.198.967.198 2.04.198h9.27c1.022 0 1.533 0 1.95-.184.368-.162.683-.423.911-.754.259-.376.354-.877.545-1.88l1.434-7.528c.068-.353.101-.53.052-.668a.542.542 0 0 0-.238-.287c-.126-.074-.306-.074-.665-.074H4.952Zm5.881 16.25a1.083 1.083 0 1 1-2.166 0 1.083 1.083 0 0 1 2.166 0Zm8.667 0a1.083 1.083 0 1 1-2.167 0 1.083 1.083 0 0 1 2.167 0Z"></path></svg></button>
+
+    {% comment %}
+    Botón para agregar el producto al carrito.
+    - Incluye un ícono renderizado dinámicamente mediante un snippet reutilizable ('icons/cart-icon').
+    {% endcomment %}
+    <button class="product-card__button">
+      {% render 'icons/cart-icon' %}
+    </button>
   </div>
 </div>

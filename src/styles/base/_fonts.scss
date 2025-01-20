@@ -1,40 +1,27 @@
+// Fuente Aeonik - Regular
 @font-face {
-
-    font-family: 'Aeonik';
-  
-    font-style: normal;
-  
-    src: url("../../assets/fonts/Aeonik-Regular.otf");
-  
-  }
-
-@font-face {
-
-  font-family: 'Aeonik';
-
-  font-style: bold;
-
-  src: url("../../assets/fonts/Aeonik-Bold.otf");
-
-}
-
-@font-face {
-
-  font-family: 'Countach';
-
+  font-family: 'Aeonik'; // Selector de la familia de fuentes
   font-style: normal;
-
-  src: url("../../assets/fonts/Countach-Regular.otf");
-
+  src: url("../../assets/fonts/Aeonik-Regular.otf");
 }
 
-
+// Fuente Aeonik - Bold
 @font-face {
-
-  font-family: 'Countach';
-
+  font-family: 'Aeonik'; // Selector de la familia de fuentes
   font-style: bold;
+  src: url("../../assets/fonts/Aeonik-Bold.otf");
+}
 
+// Fuente Countach - Regular
+@font-face {
+  font-family: 'Countach'; // Selector de la familia de fuentes
+  font-style: normal;
+  src: url("../../assets/fonts/Countach-Regular.otf");
+}
+
+// Fuente Countach - Bold
+@font-face {
+  font-family: 'Countach'; // Selector de la familia de fuentes
+  font-style: bold;
   src: url("../../assets/fonts/Countach-Bold.otf");
-
 }

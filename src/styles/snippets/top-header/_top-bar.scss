@@ -1,5 +1,6 @@
 @use 'src/styles/utils' as u;
 
+// Barra superior
 .top-bar {
   overflow: hidden;
   white-space: nowrap;
@@ -8,17 +9,20 @@
   height: 30px;
   background-color: u.$secondary-color;
 
+  // Contenedor principal de la barra superior
   &__container {
     @include u.Container;
     @include u.ContainerHover;
   }
 
+  // Texto dentro de la barra superior
   &__text {
     @include u.textMarquee;
     font-size: 1rem;
     margin-right: 5px;
   }
 
+  // Ícono decorativo en la barra superior
   &__icon {
     display: inline-block;
     width: 20px;
@@ -28,4 +32,5 @@
   }
 }
 
+// Animación global del marquee
 @include u.marqueeAnimation;

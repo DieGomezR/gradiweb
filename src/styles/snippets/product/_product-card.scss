@@ -1,11 +1,13 @@
 @use "src/styles/utils" as u;
 
+// Tarjeta de producto
 .product-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-wrap: nowrap;
 
+  // Contenedor de la imagen del producto
   &__image {
     display: flex;
     justify-content: center;
@@ -18,6 +20,7 @@
     width: 100%;
     aspect-ratio: 1;
 
+    // Imagen dentro del contenedor
     img {
       width: 100%;
       height: 100%;
@@ -25,6 +28,7 @@
       transition: transform 0.5s ease-in-out;
     }
 
+    // Efecto hover sobre el contenedor de la imagen
     &:hover {
       border-color: #8670fc;
 
@@ -34,6 +38,7 @@
     }
   }
 
+  // Contenedor de la descripción del producto
   &__description {
     display: flex;
     justify-content: space-between;
@@ -41,10 +46,12 @@
     width: 100%;
   }
 
+  // Contenido dentro de la descripción
   &__description-content {
     display: grid;
   }
 
+  // Botón dentro de la tarjeta del producto
   &__button {
     background-color: u.$secondary-color;
     border-radius: 50%;

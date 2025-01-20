@@ -6,15 +6,31 @@
   <title>SHUFFLE | STORE</title>
 </head>
 <body>
+  <!-- Contenedor del loader inicial -->
   <div id="loader">
+    <!-- Spinner animado dentro del loader -->
     <div class="spinner"></div>
-    </div>
+  </div>
+
+  <!-- Barra superior del sitio -->
   {% include 'top-bar/top-bar.liquid' %}
+
+  <!-- Cabecera principal -->
   {% include 'header/header.liquid' %}
+
+  <!-- Sección del hero -->
   {% include 'hero/hero.liquid' %}
+
+  <!-- Productos destacados -->
   {% include 'products/featured-products.liquid' %}
+
+  <!-- Colección más reciente -->
   {% include 'collections/latest-collection.liquid' %}
+
+  <!-- Footer del sitio -->
   {% include 'footer/footer.liquid' %}
+
+  <!-- Archivo JavaScript principal -->
   <script src="/main.js" defer></script>
 </body>
 </html>

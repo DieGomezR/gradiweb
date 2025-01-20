@@ -1,19 +1,53 @@
+{% comment %}
+Este contenedor principal tiene una clase para animaciones al hacer scroll.
+Lo estoy usando para aplicar efectos visuales a la cabecera.
+{% endcomment %}
 <div class="scroll-animate">
-<header class="header">
+
+  {% comment %}
+  Inicio del header principal de la página.
+  Contiene el logo, menús y métodos de pago organizados en bloques.
+  {% endcomment %}
+  <header class="header">
     <div class="header container" id="header">
-        <div class="header__container">
-            {% render 'header/menu-mobile' settings: settings %}
 
-            {% render 'header/logo-header' %}
+      {% comment %}
+      Contenedor principal del contenido del header.
+      Aquí se agrupan los elementos clave como el menú, logo y métodos de pago.
+      {% endcomment %}
+      <div class="header__container">
 
-            <div class="header__payment-methods">
-                {% render 'header/payments-header' %}
-            </div>
+        {% comment %}
+        Renderizo el menú móvil utilizando un snippet. 
+        Paso configuraciones mediante 'settings' para personalizarlo.
+        {% endcomment %}
+        {% render 'header/menu-mobile', settings: settings %}
 
-            {% render 'header/menu-header' %}
+        {% comment %}
+        Renderizo el logo del header con un snippet reutilizable.
+        {% endcomment %}
+        {% render 'header/logo-header' %}
+
+        {% comment %}
+        Contenedor para los métodos de pago en la cabecera. 
+        Utilizo un snippet para mostrarlos dinámicamente.
+        {% endcomment %}
+        <div class="header__payment-methods">
+          {% render 'header/payments-header' %}
         </div>
-    </div>
-</header>
 
-{% render 'header/content-mobile' %}
+        {% comment %}
+        Renderizo el menú principal del header con otro snippet.
+        Este menú se muestra en vista de escritorio.
+        {% endcomment %}
+        {% render 'header/menu-header' %}
+      </div>
+    </div>
+  </header>
+
+  {% comment %}
+  Contenido adicional del header para dispositivos móviles.
+  Renderizo un snippet que maneja elementos específicos para vistas responsivas.
+  {% endcomment %}
+  {% render 'header/content-mobile' %}
 </div>

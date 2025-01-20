@@ -1,10 +1,37 @@
-
+{% comment %}
+Sección de redes sociales en el footer.
+Incluye una suscripción al newsletter y enlaces a las redes sociales de la marca.
+{% endcomment %}
 <div class="footer-socials">
-    {% render 'footer/suscription-footer' %}
 
-    <div class="footer-socials__socials">  
-      <a href="https://www.facebook.com/shufflefb" class="footer-socials__item">Facebook</a>
-      <a href="https://twitter.com/shufflecom" class="footer-socials__item">X (Twitter)</a>
-      <a href="https://www.instagram.com/shuffle?igsh=YzAwZjE1ZTI0Zg==" class="footer-socials__item">Instagram</a>
-    </div>
+  {% comment %}
+  Renderizo un snippet para la suscripción al newsletter en el footer.
+  Esto asegura consistencia en el diseño y permite reutilizar la lógica de suscripción.
+  {% endcomment %}
+  {% render 'footer/suscription-footer' %}
+
+  {% comment %}
+  Contenedor de enlaces a redes sociales.
+  Cada enlace dirige a la página oficial de la marca en la plataforma correspondiente.
+  {% endcomment %}
+  <div class="footer-socials__socials">
+
+    {% comment %}
+    Enlace a la página oficial de Facebook.
+    Clase específica 'footer-socials__item' para aplicar estilos personalizados.
+    {% endcomment %}
+    <a href="https://www.facebook.com/shufflefb" class="footer-socials__item">Facebook</a>
+
+    {% comment %}
+    Enlace a la página oficial de Twitter (ahora X).
+    Clase específica 'footer-socials__item' para aplicar estilos personalizados.
+    {% endcomment %}
+    <a href="https://twitter.com/shufflecom" class="footer-socials__item">X (Twitter)</a>
+
+    {% comment %}
+    Enlace a la página oficial de Instagram.
+    Clase específica 'footer-socials__item' para aplicar estilos personalizados.
+    {% endcomment %}
+    <a href="https://www.instagram.com/shuffle?igsh=YzAwZjE1ZTI0Zg==" class="footer-socials__item">Instagram</a>
+  </div>
 </div>

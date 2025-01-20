@@ -1,12 +1,34 @@
 <div class="footer-links">
+
+  {% comment %}
+  Contenedor principal para los enlaces del footer. 
+  Aquí se organiza el menú y los enlaces adicionales junto con los métodos de pago.
+  {% endcomment %}
   <div class="footer-links__container">
+
+    {% comment %}
+    Renderizo el menú del footer mediante un snippet.
+    Paso las configuraciones necesarias desde 'settings' para personalizar el contenido.
+    {% endcomment %}
     {% render 'footer/menu-footer', settings: settings %}
 
+    {% comment %}
+    Contenedor para enlaces adicionales del footer.
+    - Uso un bucle para iterar sobre los enlaces configurados en 'settings'.
+    - Utilizo el parámetro 'offset: 4' para saltar los primeros 4 enlaces (se podrían mostrar en otro lugar).
+    - Los enlaces se renderizan en mayúsculas usando el filtro 'upcase'.
+    {% endcomment %}
     <div class="footer-links__links">
       {% for link in settings['footer'].settings.links offset: 4 %}
-      <a href="{{ link.url }}">{{link.label | upcase}} </a>
+      <a href="{{ link.url }}">{{ link.label | upcase }}</a>
       {% endfor %}
     </div>
+
+    {% comment %}
+    Renderizo los métodos de pago del footer mediante un snippet.
+    Esto asegura que los íconos o información relacionada con pagos sean consistentes en toda la página.
+    {% endcomment %}
     {% render 'footer/payments-footer' %}
+
   </div>
 </div>

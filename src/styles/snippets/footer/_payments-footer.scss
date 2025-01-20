@@ -1,30 +1,40 @@
 @use "src/styles/utils" as u;
 
+// Sección de métodos de pago en el footer
 .footer-payment-methods {
+
+  // Contenedor principal para los métodos de pago
   &__container {
     display: flex;
     gap: 0.5rem;
 
+    // Ajustes para pantallas especiales
     @include u.respond-to("special") {
       padding: 0.5rem 1rem;
       align-items: center;
       justify-content: center;
     }
+
+    // Ajustes para pantallas móviles
     @include u.respond-to("mobile") {
       justify-content: flex-start;
       padding: 0;
     }
   }
 
+  // Texto que acompaña los métodos de pago
   &__text {
     font-style: bold;
     font-size: 0.75rem;
+
+    // Estilo para la primera letra del texto
     &::first-letter {
       text-transform: uppercase;
       font-weight: bold;
     }
   }
 
+  // Contenedor para los íconos de los métodos de pago
   &__icons {
     display: flex;
     align-items: center;

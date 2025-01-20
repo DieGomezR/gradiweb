@@ -1,34 +1,39 @@
 @use "src/styles/utils" as u;
 
+// Sección del hero marquee
 .hero-marquee {
-  position: sticky;
-  overflow: hidden;
+  position: sticky; // Permite que el elemento permanezca fijo mientras se hace scroll
+  overflow: hidden; // Oculta contenido que desborde el área visible
   display: flex;
-  width: 100%;
+  width: 100%; // Asegura que ocupe todo el ancho disponible
   background-color: transparent;
 
+  // Contenedor principal del hero marquee
   &__container {
-    @include u.Container;
-    @include u.ContainerHover;
+    @include u.Container; // Mixin para estilos generales de contenedores
+    @include u.ContainerHover; // Mixin para estilos en hover
     width: 100%;
     padding: 20px;
-    gap: 20px;
+    gap: 20px; // Espaciado entre elementos
   }
 
+  // Texto dentro del marquee
   &__text {
-    @include u.textMarquee;
+    @include u.textMarquee; // Mixin para estilos específicos del texto marquee
     font-size: 3.5rem;
     gap: 10px;
     margin-left: 20px;
-    font-family: u.$title-font-stack;
+    font-family: u.$title-font-stack; // Fuente principal definida en variables
   }
 
+  // Ícono decorativo en el marquee
   &__icon {
     display: inline-block;
-    width: 50px;
+    width: 50px; // Tamaño del ícono
     height: 50px;
-    vertical-align: middle;
+    vertical-align: middle; // Alineación vertical para centrado
   }
 }
 
-@include u.marqueeAnimation;
+// Animación del marquee
+@include u.marqueeAnimation; // Mixin global para la animación del marquee

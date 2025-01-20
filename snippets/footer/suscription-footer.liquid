@@ -1,11 +1,41 @@
-
+{% comment %}
+Sección de suscripción en el footer.
+Incluye un formulario para que los usuarios ingresen su correo y se suscriban a notificaciones.
+{% endcomment %}
 <div class="footer-suscription">
+
+  {% comment %}
+  Contenedor principal para organizar el formulario de suscripción.
+  Divide el título, el campo de entrada y el ícono en un diseño coherente.
+  {% endcomment %}
   <div class="footer-suscription__container">
     <form action="" class="footer-suscription__text">
+
+      {% comment %}
+      Título del formulario de suscripción.
+      Explica al usuario el propósito de proporcionar su correo.
+      {% endcomment %}
       <p class="footer-suscription__text-title">Subscribe and receive drop notifications</p>
+
+      {% comment %}
+      Contenedor para el campo de entrada y el ícono.
+      Incluye:
+      - Input de tipo email con un marcador de posición.
+      - Ícono dinámico renderizado desde un snippet.
+      {% endcomment %}
       <div class="footer-suscription__input-container">
+
+        {% comment %}
+        Campo de entrada para el correo electrónico.
+        Incluye un marcador de posición que indica al usuario qué debe escribir.
+        {% endcomment %}
         <input class="footer-suscription__text-input" type="email" placeholder="Enter Email"/>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#762CFB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right "><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+
+        {% comment %}
+        Renderizo un ícono de flecha desde un snippet reutilizable.
+        Este ícono puede servir como indicador visual para enviar la información.
+        {% endcomment %}
+        {% render 'icons/arrow-icon' %}
       </div>
     </form>
   </div>

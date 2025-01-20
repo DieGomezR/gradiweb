@@ -1,54 +1,84 @@
-
+{% comment %}
+Sección del menú móvil.
+Incluye un botón para abrir/cerrar el menú y un logotipo para la versión móvil.
+{% endcomment %}
 <div class="mobile-menu" data-mobile-menu>
-  <button class="mobile-menu__button" type="button" aria-expanded="false" aria-controls="mobile-menu-content" data-mobile-menu-toggle> 
-    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="15" fill="none"><path stroke="#762CFB" stroke-width="3" d="M0 1.5h36M0 13.5h36"></path></svg>    
-  </button>
-  <div class="mobile-menu__mobile-logo">
-    {% render 'header/responsive/mobile-logo' settings: settings %}
 
+  {% comment %}
+  Botón para alternar la visibilidad del menú móvil.
+  - 'aria-expanded': Indica si el menú está abierto o cerrado.
+  - 'aria-controls': Vincula el botón con el contenido del menú móvil.
+  - Incluye un ícono SVG como representación visual del botón.
+  {% endcomment %}
+  <button class="mobile-menu__button" type="button" aria-expanded="false" aria-controls="mobile-menu-content" data-mobile-menu-toggle> 
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="15" fill="none">
+      <path stroke="#762CFB" stroke-width="3" d="M0 1.5h36M0 13.5h36"></path>
+    </svg>    
+  </button>
+
+  {% comment %}
+  Contenedor para renderizar el logotipo móvil.
+  Utiliza un snippet dinámico para asegurar consistencia.
+  {% endcomment %}
+  <div class="mobile-menu__mobile-logo">
+    {% render 'header/responsive/mobile-logo', settings: settings %}
   </div>
 </div>
 
 <script>
-  /**
-   * Initializes the mobile menu functionality.
-   * Toggles the menu and closes it when clicking outside.
-   */
-  function initMobileMenu() {
-    const menu = document.querySelector('[data-mobile-menu]');
-    const toggle = document.querySelector('[data-mobile-menu-toggle]');
-    const content = document.querySelector('[data-mobile-menu-content]');
-    let isOpen = false;
+/* 
+Inicializa la funcionalidad del menú móvil.
+Permite abrir y cerrar el menú, y lo cierra automáticamente al hacer clic fuera de él.
+*/
+function initMobileMenu() {
+  const menu = document.querySelector('[data-mobile-menu]');
+  const toggle = document.querySelector('[data-mobile-menu-toggle]');
+  const content = document.querySelector('[data-mobile-menu-content]');
+  let isOpen = false;
 
-    if (!menu || !toggle || !content) return;
+  // Verifica que los elementos necesarios existan antes de continuar
+  if (!menu || !toggle || !content) return;
 
-    // Toggles the menu state
-    const toggleMenu = () => {
-      isOpen = !isOpen;
-      toggle.setAttribute('aria-expanded', isOpen);
-      content.classList.toggle('is-open', isOpen);
-      menu.classList.toggle('is-active', isOpen);
-    };
+  /* 
+  Alterna la visibilidad del menú móvil.
+  - Cambia el estado de 'isOpen'.
+  - Actualiza el atributo 'aria-expanded' para accesibilidad.
+  - Añade o remueve las clases necesarias para mostrar u ocultar el menú.
+  */
+  const toggleMenu = () => {
+    isOpen = !isOpen;
+    toggle.setAttribute('aria-expanded', isOpen);
+    content.classList.toggle('is-open', isOpen);
+    menu.classList.toggle('is-active', isOpen);
+  };
 
-    // Closes the menu
-    const closeMenu = () => {
-      isOpen = false;
-      toggle.setAttribute('aria-expanded', isOpen);
-      content.classList.remove('is-open');
-      menu.classList.remove('is-active');
-    };
+  /* 
+  Cierra el menú móvil.
+  - Resetea el estado de 'isOpen'.
+  - Remueve las clases activas del menú y contenido.
+  */
+  const closeMenu = () => {
+    isOpen = false;
+    toggle.setAttribute('aria-expanded', isOpen);
+    content.classList.remove('is-open');
+    menu.classList.remove('is-active');
+  };
 
-    // Event listener for the toggle button
-    toggle.addEventListener('click', toggleMenu);
+  // Evento para alternar el menú al hacer clic en el botón
+  toggle.addEventListener('click', toggleMenu);
 
-    // Event listener to close the menu when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!menu.contains(event.target) && isOpen) {
-        closeMenu();
-      }
-    });
-  }
+  /* 
+  Evento para cerrar el menú al hacer clic fuera de él.
+  - Comprueba si el clic fue fuera del menú.
+  - Si el menú está abierto, lo cierra.
+  */
+  document.addEventListener('click', (event) => {
+    if (!menu.contains(event.target) && isOpen) {
+      closeMenu();
+    }
+  });
+}
 
-  // Initialize mobile menu on DOMContentLoaded
-  window.addEventListener('DOMContentLoaded', initMobileMenu);
+// Inicializa la funcionalidad del menú móvil al cargar el DOM
+window.addEventListener('DOMContentLoaded', initMobileMenu);
 </script>

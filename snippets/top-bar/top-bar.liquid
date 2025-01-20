@@ -1,24 +1,63 @@
-
+{% comment %}
+Renderizo el componente 'marquee' como un elemento independiente.
+Este puede incluir contenido animado adicional en otras secciones.
+{% endcomment %}
 {% render 'marquee' %}
 
+{% comment %}
+Barra superior de notificaciones.
+Incluye un mensaje informativo y un ícono animado gestionado por el script.
+{% endcomment %}
 <div class="top-bar">
+
+  {% comment %}
+  Contenedor principal para la barra superior.
+  - Organiza el contenido de la barra en una estructura centralizada.
+  {% endcomment %}
   <div class="top-bar__container">
+
+    {% comment %}
+    Contenido de la barra superior.
+    Este elemento contiene el texto y el ícono, y es administrado por el script para generar la animación.
+    {% endcomment %}
     <div class="top-bar__content" id="topBarContent">
+      
+      {% comment %}
+      Texto y elemento decorativo de la barra.
+      Incluye un ícono dinámico y un mensaje informativo.
+      {% endcomment %}
       <span class="top-bar__text">
+
+        {% comment %}
+        Ícono decorativo de la barra superior.
+        Renderizado dinámicamente mediante un snippet reutilizable.
+        {% endcomment %}
         <div class="top-bar__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><g filter="url(#a)"><path fill="#6B38F1" d="M8.501 16s-.493-2.715-2.637-4.86v.003a9.63 9.63 0 0 0-.865-.76C3.052 8.877 1 8.503 1 8.503s2.715-.494 4.861-2.639a9.25 9.25 0 0 0 1.087-1.313C8.182 2.748 8.498 1 8.498 1s.497 2.718 2.64 4.862c.283.282.574.531.866.758C13.95 8.126 16 8.5 16 8.5s-2.715.496-4.859 2.64a9.23 9.23 0 0 0-1.084 1.314C8.823 14.252 8.5 16 8.5 16Z"></path></g><defs><filter id="a" width="17" height="17" x="0" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix><feOffset></feOffset><feGaussianBlur stdDeviation="0.5"></feGaussianBlur><feComposite in2="hardAlpha" operator="out"></feComposite><feColorMatrix values="0 0 0 0 0.419608 0 0 0 0 0.219608 0 0 0 0 0.945098 0 0 0 1 0"></feColorMatrix><feBlend in2="BackgroundImageFix" result="effect1_dropShadow_360_18"></feBlend><feBlend in="SourceGraphic" in2="effect1_dropShadow_360_18" result="shape"></feBlend><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix><feOffset></feOffset><feGaussianBlur stdDeviation="4.95"></feGaussianBlur><feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"></feComposite><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"></feColorMatrix><feBlend in2="shape" result="effect2_innerShadow_360_18"></feBlend></filter></defs></svg>
+          {% render 'icons/diamonds-marquee' %}
         </div>
+
+        {% comment %}
+        Mensaje dinámico de la barra superior.
+        Comunica información clave como ofertas o políticas de envío.
+        {% endcomment %}
         <p>FREE SHIPPING FOR ORDERS OVER $100</p>
       </span>
     </div>
   </div>
 </div>
-<script>
-  const marqueeElement = document.getElementById('topBarContent');
-  const marquee = new MarqueeManager(marqueeElement, {
-    speed: 20,
-    padding: 20,
-}
-);
 
+<script>
+  /* 
+  Inicializa la funcionalidad de la barra animada (marquee).
+  - `marqueeElement`: Elemento que contiene el contenido animado.
+  - Configuración:
+      - `speed`: Velocidad del desplazamiento del marquee (20 unidades).
+      - `padding`: Espaciado entre los elementos del marquee (20 unidades).
+  */
+  const marqueeElement = document.getElementById('topBarContent');
+  
+  const marquee = new MarqueeManager(marqueeElement, {
+    speed: 20, // Velocidad del desplazamiento del contenido.
+    padding: 20, // Espaciado entre elementos en el marquee.
+  });
 </script>

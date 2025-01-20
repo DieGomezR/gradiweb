@@ -1,28 +1,33 @@
 @use 'src/styles/utils' as u;
 
+// Estilos para el footer en dispositivos móviles
 .footer-mobile {
   display: flex;
   flex-direction: column;
 
-  // Contenedor para la suscripción
+  // Contenedor de la suscripción en el footer móvil
   .footer-suscription-mobile {
     width: 100%;
 
+    // Texto dentro de la sección de suscripción
     &__text {
       font-size: 0.85rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
+
       @include u.respond-to("intermediate") {
         margin-top: 1rem;
       }
     }
 
+    // Contenedor para el input y el ícono
     &__input-container {
       margin-top: 10px;
       display: flex;
       align-items: center;
       width: 100%;
 
+      // Input de texto para la suscripción
       .footer-suscription-mobile__text-input {
         flex: 1;
         padding: 0.5rem 1rem;
@@ -38,6 +43,7 @@
         }
       }
 
+      // Ícono SVG dentro del contenedor de input
       svg {
         margin-left: -35px;
         cursor: pointer;
@@ -45,6 +51,7 @@
     }
   }
 
+  // Contenedor del logotipo en el footer móvil
   .footer-logo-mobile {
     &__container {
       display: flex;
@@ -52,10 +59,11 @@
       justify-items: flex-start;
     }
 
+    // Logotipo principal
     &__logo {
       display: flex;
       align-items: center;
-      gap: 10px; 
+      gap: 10px;
 
       svg {
         width: 50px;
@@ -63,60 +71,70 @@
       }
     }
 
+    // Texto del logotipo
     &__logo-text {
       font-family: u.$title-font-stack;
       color: u.$secondary-color;
       font-size: 40px;
       font-weight: normal;
-  
+
+      // Parte en negrita del texto del logotipo
       &--bold {
         font-weight: bold;
         color: u.$white;
       }
     }
 
+    // Redes sociales en el footer móvil
     .footer-socials-mobile__socials {
-      margin-top: 20px; 
+      margin-top: 20px;
       display: flex;
       flex-direction: column;
-      gap: 10px; 
+      gap: 10px;
 
+      // Ítems de las redes sociales
       .footer-socials-mobile__item {
-        color: #ffffff; 
+        color: #ffffff;
         font-size: 16px;
         text-decoration: none;
         transition: color 0.3s;
 
         &:hover {
-          color: #6b38f1; 
+          color: #6b38f1;
         }
       }
     }
   }
+
+  // Descripción adicional en el footer móvil
   .footer-logo-mobile__description {
     justify-items: self-start;
     padding-top: 20px;
+
+    // Texto dentro de la descripción
     &-text {
-      color: #ffffff; 
-      font-size: 14px; 
-      line-height: 1.6; 
-      margin: 0; 
-      display: block; 
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+      display: block;
     }
 
+    // Texto especial en el primer y segundo párrafo
     p:nth-child(1),
     p:nth-child(2) {
-      display: inline; 
-      margin: 0; 
+      display: inline;
+      margin: 0;
     }
 
+    // Enlace en el tercer párrafo
     p:nth-child(3) {
       a {
-        text-decoration: none; 
+        text-decoration: none;
         transition: color 0.3s;
 
         &:hover {
-          color: #ffffff; 
+          color: #ffffff;
         }
       }
     }

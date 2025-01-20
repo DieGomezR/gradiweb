@@ -1,21 +1,54 @@
+{% comment %}
+Contenedor principal con animaciones al hacer scroll.
+Se utiliza para aplicar efectos en el footer al desplazarse.
+{% endcomment %}
 <div class="scroll-animate">
-<footer class="footer container" id="footer">
-  <div class="footer__content">
-    <div class="footer__container-desktop">
-      {% render 'footer/logo-footer' settings: settings %}
 
-      {% render 'footer/links-footer' settings: settings %}
+  {% comment %}
+  Inicio del footer principal. 
+  Contiene elementos organizados en bloques para diferentes resoluciones.
+  {% endcomment %}
+  <footer class="footer container" id="footer">
+    
+    {% comment %}
+    Contenedor para el contenido principal del footer en versión escritorio.
+    Aquí se renderizan el logo, los enlaces y las redes sociales.
+    {% endcomment %}
+    <div class="footer__content">
+      <div class="footer__container-desktop">
 
-      {% render 'footer/socials-footer' %}
+        <!-- Renderizo el snippet del logo del footer con la configuración actual. -->
+        {% render 'footer/logo-footer', settings: settings %}
+
+        <!-- Renderizo los enlaces del footer. Paso las configuraciones necesarias. -->
+        {% render 'footer/links-footer', settings: settings %}
+
+        <!-- Renderizo las redes sociales en el footer. -->
+        {% render 'footer/socials-footer' %}
+      </div>
     </div>
-  </div>
-  <div class="footer__container-tablet">
-    <div class="footer__links-tablet">
-      {% render 'footer/links-footer' settings: settings %}
+
+    {% comment %}
+    Contenedor del footer optimizado para tabletas. 
+    Aquí organizo los enlaces y el logo junto con las redes sociales de forma responsiva.
+    {% endcomment %}
+    <div class="footer__container-tablet">
+
+      {% comment %}
+      Enlaces del footer en formato para tabletas. 
+      Se renderizan con un snippet reutilizable.
+      {% endcomment %}
+      <div class="footer__links-tablet">
+        {% render 'footer/links-footer', settings: settings %}
+      </div>
+
+      {% comment %}
+      Contenedor para el logo y las redes sociales en formato responsivo para tabletas.
+      Incluye un menú móvil si es necesario.
+      {% endcomment %}
+      <div class="footer__logo-socials-tablet">
+        {% render 'footer/responsive/menu-mobile', settings: settings %}
+      </div>
     </div>
-    <div class="footer__logo-socials-tablet">
-      {% render 'footer/responsive/menu-mobile' settings: settings %}
-    </div>
-  </div>
-</footer>
+  </footer>
 </div>

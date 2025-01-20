@@ -1,9 +1,31 @@
 <div class="collection-card">
+
+    {% comment %}
+    Asigno una fecha de referencia para comparar con la fecha de creación de la colección.
+    - La fecha de referencia está configurada como '2025-01-01'.
+    - Ambas fechas se convierten a formato de timestamp (segundos desde 1970) para facilitar la comparación.
+    {% endcomment %}
     {% assign reference_date = '2025-01-01' | date: '%s' %}
     {% assign collection_date = collection.created_at | date: '%s' %}
+
+    {% comment %}
+    Comparo las fechas:
+    - Si la fecha de creación de la colección es igual o posterior a la referencia ('2025-01-01'), renderizo la tarjeta.
+    {% endcomment %}
     {% if collection_date >= reference_date %}
     <div class="collection-card__item">
+
+        {% comment %}
+        Renderizo la imagen de la colección:
+        - La imagen se carga desde la carpeta `assets`.
+        - Uso el título de la colección como texto alternativo para accesibilidad.
+        {% endcomment %}
         <img src="assets/{{ collection.image }}" alt="{{ collection.title }}" class="collection-card__image">
+
+        {% comment %}
+        Agrego un overlay con el título de la colección:
+        - Esto se utiliza para mostrar información adicional sobre la colección cuando el usuario interactúa.
+        {% endcomment %}
         <div class="collection-card__overlay">
             <p class="collection-card__text">{{ collection.title }}</p>
         </div>

@@ -1,21 +1,45 @@
+{% comment %}
+Contenedor principal con animaciones al hacer scroll.
+Usado para aplicar efectos visuales a la sección hero al desplazarse.
+{% endcomment %}
 <div class="scroll-animate">
-<section class="hero container">
+
+  {% comment %}
+  Sección hero principal. Contiene el contenido destacado, como la imagen y el botón.
+  Uso la clase 'container' para mantener el diseño dentro del ancho del sitio.
+  {% endcomment %}
+  <section class="hero container">
     <div class="hero__content">
-        <div class="hero__image">
-            <img alt="hero-img" width="1360" height="600" fetchpriority="high" decoding="async"
-                src="/assets/hero_banner_img.avif" />
-            <div class="hero__button-container">
-                <a href="{{settings['hero-banner'].settings.button_link }}" class="hero__button-link">
-                    <button type="button" class="hero__button">
-                        <p class="hero__button-text">{{settings['hero-banner'].settings.button_text | upcase }}
-                        </p>
-                    </button>
-                </a>
-            </div>
+
+      {% comment %}
+      Contenedor de la imagen del hero. Aquí se carga una imagen principal con optimización:
+      - Atributo 'fetchpriority' para priorizar su carga.
+      - Atributo 'decoding' para mejorar el rendimiento en navegadores modernos.
+      {% endcomment %}
+      <div class="hero__image">
+        <img alt="hero-img" width="1360" height="600" fetchpriority="high" decoding="async"
+          src="/assets/hero_banner_img.avif" />
+
+        {% comment %}
+        Contenedor para el botón principal dentro del hero.
+        Este botón incluye un enlace que utiliza configuraciones dinámicas definidas en 'settings'.
+        {% endcomment %}
+        <div class="hero__button-container">
+          <a href="{{ settings['hero-banner'].settings.button_link }}" class="hero__button-link">
+            <button type="button" class="hero__button">
+              <p class="hero__button-text">
+                {{ settings['hero-banner'].settings.button_text | upcase }}
+              </p>
+            </button>
+          </a>
         </div>
+      </div>
     </div>
-</section>
-{% render 'hero/marquee-hero',
-marquee_text: settings['hero-banner'].settings.marquee_text
-%}
+  </section>
+
+  {% comment %}
+  Renderizo un snippet para un marquee (cinta de texto) debajo del hero.
+  El texto del marquee se obtiene dinámicamente de 'settings'.
+  {% endcomment %}
+  {% render 'hero/marquee-hero', marquee_text: settings['hero-banner'].settings.marquee_text %}
 </div>

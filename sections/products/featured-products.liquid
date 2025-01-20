@@ -1,35 +1,70 @@
+{% comment %}
+Contenedor principal con animaciones al hacer scroll.
+Incluye la sección de productos destacados.
+{% endcomment %}
 <div class="scroll-animate">
-<section class="featured-products container" id="all-products">
-  <div class="featured-products__list">
-    {% for product in products %}
-      <div class="featured-products__item{% if product.id > 4 %}--hidden{% endif %}" data-product-card>
-        {% render 'products/products-cards', product: product %}
-      </div>
-    {% endfor %}
-  </div>
-  <div class="featured-products__more-button">
-    <button type="button" data-view-more>view all</button>
-  </div>
-</section>
+
+  {% comment %}
+  Sección de productos destacados.
+  Utiliza un id para enlazarla o manipularla mediante scripts.
+  {% endcomment %}
+  <section class="featured-products container" id="all-products">
+    
+    {% comment %}
+    Lista de productos destacados generados dinámicamente mediante un bucle.
+    {% endcomment %}
+    <div class="featured-products__list">
+      {% for product in products %}
+        {% comment %}
+        Clase condicional:
+        - 'featured-products__item' para todos los productos.
+        - 'featured-products__item--hidden' para ocultar productos con ID > 4 en escritorio.
+        {% endcomment %}
+        <div class="featured-products__item{% if product.id > 4 %}--hidden{% endif %}" data-product-card>
+          {% render 'products/products-cards', product: product %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% comment %}
+    Botón para mostrar más productos en vista de escritorio.
+    Esconde o muestra las tarjetas ocultas al hacer clic.
+    {% endcomment %}
+    <div class="featured-products__more-button">
+      <button type="button" data-view-more>view all</button>
+    </div>
+  </section>
 </div>
 
 <script>
+/* 
+Evento principal: Ejecuta la lógica cuando el DOM está completamente cargado.
+Esto asegura que los elementos ya estén disponibles para ser manipulados.
+*/
 document.addEventListener('DOMContentLoaded', () => {
+
+  // Selecciono el botón "View More" y las tarjetas de productos.
   const toggleButton = document.querySelector('[data-view-more]');
   const cards = Array.from(document.querySelectorAll('[data-product-card]'));
-  let isExpanded = false; // Estado inicial para desktop
 
-  // Función para actualizar las clases según el tamaño de pantalla
+  // Estado inicial para saber si las tarjetas están expandidas.
+  let isExpanded = false;
+
+  /* 
+  Función para actualizar la visibilidad de las tarjetas.
+  Incluye lógica para manejar mobile (mostrar todo) y desktop (mostrar solo 4 tarjetas inicialmente).
+  */
   const updateCardsVisibility = () => {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches; // Detectar si es mobile
+    // Detecto si el usuario está en mobile (ancho de pantalla <= 768px).
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
     cards.forEach((card, idx) => {
       if (isMobile) {
-        // En mobile: Mostrar todas las tarjetas, mantener "featured-products__item"
+        // En mobile: Siempre mostrar todas las tarjetas.
         card.classList.add('featured-products__item');
         card.classList.remove('featured-products__item--hidden');
       } else {
-        // En desktop: Aplicar lógica de mostrar/ocultar según "isExpanded"
+        // En desktop: Mostrar solo las 4 primeras si no está expandido.
         card.classList.add('featured-products__item');
         if (idx > 3 && !isExpanded) {
           card.classList.add('featured-products__item--hidden');
@@ -39,32 +74,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Mostrar u ocultar el botón según el tamaño de pantalla
-    if (isMobile) {
-      toggleButton.style.display = 'none'; // Ocultar botón en mobile
-    } else {
-      toggleButton.style.display = 'flex'; // Mostrar botón en desktop
-    }
+    // Mostrar u ocultar el botón según el tamaño de pantalla.
+    toggleButton.style.display = isMobile ? 'none' : 'flex';
   };
 
-  // Evento del botón "View More" en desktop
+  // Evento para manejar el clic en el botón "View More" (solo en desktop).
   if (toggleButton) {
     toggleButton.addEventListener('click', () => {
-      isExpanded = !isExpanded; // Alternar estado expandido
+      isExpanded = !isExpanded; // Alterno entre expandido y contraído.
 
+      // Muestro u oculto las tarjetas adicionales según el estado actual.
       cards.forEach((card, idx) => {
         if (idx > 3) {
           card.classList.toggle('featured-products__item--hidden', !isExpanded);
         }
       });
 
-      // Cambiar el texto del botón
+      // Cambio el texto del botón según el estado actual.
       toggleButton.textContent = isExpanded ? 'view less' : 'view all';
     });
   }
 
-  // Ejecutar lógica al cargar la página y al cambiar el tamaño de pantalla
+  // Llamo a la función de actualización al cargar la página.
   updateCardsVisibility();
+
+  // Vuelvo a ejecutar la lógica al redimensionar la ventana.
   window.addEventListener('resize', updateCardsVisibility);
 });
 </script>

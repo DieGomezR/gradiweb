@@ -1,12 +1,13 @@
 @use "src/styles/utils" as u;
 
-// Estilos para fuentes y colores
+// Estilos para el cuerpo del documento
 body {
   color: u.$text-color;
   font: normal 100% / 1.4 u.$text-font-stack;
   background-color: u.$background-color;
 }
 
+// Estilos para enlaces (visitados y no visitados)
 a:link,
 a:visited {
   color: inherit;

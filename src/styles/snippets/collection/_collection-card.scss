@@ -1,55 +1,61 @@
 @use 'src/styles/utils' as u;
 
+// Tarjeta de colección
 .collection-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  // Elemento principal dentro de la tarjeta
+  &__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  
-    &__item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f4f4f4;
-      height: 250px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-  
-    &__image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    height: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 
+  // Imagen dentro de la tarjeta
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  // Estilo para la etiqueta `img` dentro de la tarjeta
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  // Efecto hover sobre la tarjeta
+  &:hover {
     img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    &:hover {
-      img {
-        transform: scale(1.2);
-      }
-    }
-  
-    &__overlay {
-      position: absolute;
-      bottom: 10%; 
-      left: 3%;
-      background-color: transparent; 
-      padding: 0.5rem 1rem;
-      z-index: 2;
-    }
-  
-    &__text {
-      font-size: 1.5rem; 
-      color: white;
+      transform: scale(1.2); // Zoom en la imagen al pasar el cursor
     }
   }
-  
+
+  // Contenedor del overlay de la tarjeta
+  &__overlay {
+    position: absolute;
+    bottom: 10%;
+    left: 3%;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    z-index: 2;
+  }
+
+  // Texto dentro del overlay
+  &__text {
+    font-size: 1.5rem;
+    color: white;
+  }
+}

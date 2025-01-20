@@ -1,11 +1,44 @@
-
+{% comment %}
+Sección del menú móvil.
+Incluye una lista de enlaces y un snippet renderizado dinámicamente para métodos de pago.
+{% endcomment %}
 <div id="mobile-menu-content" class="mobile-menu__content" data-mobile-menu-content>
+
+  {% comment %}
+  Contenedor principal del contenido del menú móvil.
+  Organiza los elementos del menú en una lista estructurada.
+  {% endcomment %}
   <div class="mobile-menu__content-container">
+
+    {% comment %}
+    Lista de enlaces del menú móvil.
+    Cada elemento de la lista representa una sección o funcionalidad del sitio.
+    {% endcomment %}
     <ul class="mobile-menu__list">
-      <li class="mobile-menu__item"><a href="#">All products</a></li>
-      <li class="mobile-menu__item"><a href="#">Collections</a></li>
-      <li class="mobile-menu__item">{% render 'header/payments-header' %}
-</li>
+
+      {% comment %}
+      Primer elemento del menú: Enlace a la página "All products".
+      Este enlace dirige a la sección donde se muestran todos los productos.
+      {% endcomment %}
+      <li class="mobile-menu__item">
+        <a href="#">All products</a>
+      </li>
+
+      {% comment %}
+      Segundo elemento del menú: Enlace a la página "Collections".
+      Este enlace dirige a la sección de colecciones disponibles.
+      {% endcomment %}
+      <li class="mobile-menu__item">
+        <a href="#">Collections</a>
+      </li>
+
+      {% comment %}
+      Tercer elemento del menú: Métodos de pago renderizados dinámicamente.
+      Uso un snippet ('header/payments-header') para mantener consistencia y flexibilidad.
+      {% endcomment %}
+      <li class="mobile-menu__item">
+        {% render 'header/payments-header' %}
+      </li>
     </ul>
   </div>
 </div>

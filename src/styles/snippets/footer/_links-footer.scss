@@ -1,11 +1,11 @@
 @use 'src/styles/utils' as u;
 
+// Estilos para la sección de enlaces en el footer
 .footer-links {
-
   display: flex;
   align-items: stretch;
 
-  // Contenedor para enlaces en pantallas grandes
+  // Contenedor principal para los enlaces en pantallas grandes
   &__container {
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
     }
   }
 
-  // Estilo de los enlaces
+  // Lista de enlaces dentro del footer
   &__links {
     display: flex;
     align-items: center;
